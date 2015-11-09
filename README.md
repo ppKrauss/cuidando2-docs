@@ -1,5 +1,7 @@
 # cuidando2-docs
-docs do "Guia do Desenvolvedor" do Cuidando2, https://github.com/okfn-brasil/cuidando2
+docs técnicos do "Guia do Desenvolvedor" do Cuidando2, https://github.com/okfn-brasil/cuidando2
+
+Preparado com [Sphinx](http://sphinx.readthedocs.org/en/latest/tutorial.html). Iniciado com `sphinx-quickstart` e html gerado por `make html`.
 
 ------
 
