@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Cuidando do Meu Bairro - Guia do desenvolvedor &mdash; Documentação cuidando-docs v1</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     'v1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Documentação cuidando-docs v1" href="#" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="cuidando-do-meu-bairro-guia-do-desenvolvedor">
+<h1>Cuidando do Meu Bairro - Guia do desenvolvedor<a class="headerlink" href="#cuidando-do-meu-bairro-guia-do-desenvolvedor" title="Link permanente para este título">¶</a></h1>
+<p>Versão v1 - novembro de 2015.</p>
+<p>Contents:</p>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+<div class="section" id="introducao">
+<h2>Introdução<a class="headerlink" href="#introducao" title="Link permanente para este título">¶</a></h2>
+<p>Este guia descreve primeiramente a instalação e as formas de uso dos webservices.</p>
+<p>...</p>
+</div>
+</div>
+<div class="section" id="tagarela-beta">
+<h1>Tagarela (Beta)<a class="headerlink" href="#tagarela-beta" title="Link permanente para este título">¶</a></h1>
+<p>Microservice para comentários.</p>
+<p>Similar a [posativ/Isso](<a class="reference external" href="https://posativ.org/isso/">https://posativ.org/isso/</a>), usando
+[Viralata](<a class="reference external" href="https://github.com/okfn-brasil/viralata">https://github.com/okfn-brasil/viralata</a>) para autenticação.</p>
+<p>Maiores detalhes
+[github.com/okfn-brasil/tagarela](<a class="reference external" href="https://github.com/okfn-brasil/tagarela">https://github.com/okfn-brasil/tagarela</a>).</p>
+<div class="section" id="openshift-hosting">
+<h2>OpenShift Hosting<a class="headerlink" href="#openshift-hosting" title="Link permanente para este título">¶</a></h2>
+<p>O código pode ser [OpenShift](<a class="reference external" href="https://openshift.com">https://openshift.com</a>) *ready*</p>
+<dl class="docutils">
+<dt></dt>
+<dd>Por isso, deve ser possível para hospedá-lo gratuitamente.</dd>
+</dl>
+<p>Usando rhc (não se esqueça de definir a URL para o repositório usado;
+talvez este?):</p>
+<blockquote>
+<div>rhc app create tagarela python-2.7 postgresql-9.2 &#8211;from-code=&amp;lt;code-for-repo&amp;gt;</div></blockquote>
+<p>Parece que OpenShift Postgres não está fazendo vácuo, por isso, fazê-lo
+com uma tarefa agendada:</p>
+<blockquote>
+<div>rhc cartridge add cron -a tagarela</div></blockquote>
+<p>Você também vai precisar de um
+<cite>keypub&lt;/ code&gt; para a instância Viralata usado e um &lt;code&gt;local_settings.py&lt;/ code&gt;.
+&lt;br /&gt; Você pode usar &lt;code&gt;settings/local_settings.openshift_example.py</cite>
+como um exemplo para o segundo.</p>
+<blockquote>
+<div>Coloque os dois arquivos em <cite>~/app-root/data/</cite>, dentro da engrenagem</div></blockquote>
+<dl class="docutils">
+<dt>OpenShift.</dt>
+<dd>E, de dentro do engrenagem, utilizando o SSH, o init a DB:</dd>
+</dl>
+</div>
+<div class="section" id="api">
+<h2>API<a class="headerlink" href="#api" title="Link permanente para este título">¶</a></h2>
+<p>Precisa de um doc &#8216;estático&#8217;, mas acessando a raiz de uma instância
+hospedada é possível ver um doc Swagger.</p>
+<ul class="simple">
+<li><ul class="first">
+<li><ul class="first">
+<li><ul class="first">
+<li><ul class="first">
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="vira-lata-beta">
+<h1>Vira-Lata (Beta)<a class="headerlink" href="#vira-lata-beta" title="Link permanente para este título">¶</a></h1>
+<p>Microservice for Authentication: Restlike &amp; Social.</p>
+<p>Similar to [microauth](<a class="reference external" href="https://github.com/LukeB42/microauth">https://github.com/LukeB42/microauth</a>), but built
+over [python-social-auth](<a class="reference external" href="https://github.com/omab/python-social-auth">https://github.com/omab/python-social-auth</a>) to
+allow auth using other providers (like oAuth).Instead of Microauth, Vira-Lata has no role management.</p>
+<p>The protocol is similar to
+[Kerberos](<a class="reference external" href="https://en.wikipedia.org/wiki/Kerberos_%28protocol%29">https://en.wikipedia.org/wiki/Kerberos_%28protocol%29</a>),
+having &#8220;main&#8221; and &#8220;micro&#8221; tokens.</p>
+<p>An example of web interface using this microservice as backend is
+[Cuidando2](<a class="reference external" href="https://github.com/okfn-brasil/cuidando2">https://github.com/okfn-brasil/cuidando2</a>).An example of microservice that uses the tokens produced by this
+microservice is [Tagarela](<a class="reference external" href="https://github.com/okfn-brasil/tagarela">https://github.com/okfn-brasil/tagarela</a>).</p>
+<p><strong>This code is still in beta stage, so it should be used with care.</strong></p>
+<div class="section" id="protocol">
+<h2>Protocol<a class="headerlink" href="#protocol" title="Link permanente para este título">¶</a></h2>
+<p>Common workflow:</p>
+<ol class="arabic simple">
+<li>Use the <cite>register</cite> or <cite>login</cite> endpoints to get a <cite>main</cite> and a
+<cite>micro</cite> token.</li>
+<li>Use the <cite>micro</cite> token to access the other microservices.</li>
+<li>Use the <cite>main</cite> token to get a new <cite>micro</cite> token or logout.</li>
+</ol>
+<p>Important notes:</p>
+<ul class="simple">
+<li>A micro token cannot be invalided besides by expiration time. So it
+must have a short life.</li>
+<li>The Vira-Lata keeps control of invalidated main token, so they can
+have longer lives. But the other microservices don&#8217;t know if a main
+token was invalidated, so they should only accept micro tokens.</li>
+<li>Micro tokens cannot be used to get a new micro token. This would
+allow infinite renew. Only main tokens can be used for this purpose.</li>
+</ul>
+<p>The tokens are JWTs. To sign them the Vira-Lata needs a private key. The
+other micro services need the public key.The tokens have <cite>username</cite> (username of the user), <cite>type</cite> (&#8220;micro&#8221; or
+&#8220;main&#8221;) and an <cite>exp</cite> (expiration time) field.</p>
+</div>
+<div class="section" id="install">
+<h2>Install<a class="headerlink" href="#install" title="Link permanente para este título">¶</a></h2>
+<blockquote>
+<div>$ python setup.py develop</div></blockquote>
+<p>If you are using Postgres:</p>
+<blockquote>
+<div>$ pip install psycopg2</div></blockquote>
+<p>You will also need to generate an RSA key and place it in <cite>settings/key</cite>
+file.The public key will be used by the other micro services to validate the
+tokens.</p>
+</div>
+<div class="section" id="prepare-db">
+<h2>Prepare DB<a class="headerlink" href="#prepare-db" title="Link permanente para este título">¶</a></h2>
+<p>Create the database and user, set them in <cite>settings/local_settings.py</cite>
+as <cite>SQLALCHEMY_DATABASE_URI</cite>.</p>
+<p>~~~~ {.python}
+SQLALCHEMY_DATABASE_URI = &#8216;postgresql://&amp;lt;user&amp;gt;:&amp;lt;password&amp;gt;&#64;localhost/&amp;lt;database&amp;gt;&#8217;
+~~~~</p>
+<p>Create tables:</p>
+<blockquote>
+<div>$ python manage.py initdb</div></blockquote>
+</div>
+<div class="section" id="run">
+<h2>Run!<a class="headerlink" href="#run" title="Link permanente para este título">¶</a></h2>
+<blockquote>
+<div>$ python manage.py run</div></blockquote>
+</div>
+<div class="section" id="id1">
+<h2>OpenShift Hosting<a class="headerlink" href="#id1" title="Link permanente para este título">¶</a></h2>
+<p>This code should be [OpenShift](<a class="reference external" href="https://openshift.com">https://openshift.com</a>) ready.So it should be possible to host it for free.</p>
+<p>Using rhc (don&#8217;t forget to set the URL for the used repository; maybe
+this one?):</p>
+<blockquote>
+<div>rhc app create viralata python-2.7 postgresql-9.2 &#8211;from-code=&amp;lt;code-for-repo&amp;gt;</div></blockquote>
+<p>Looks like OpenShift Postgres is not doing Vacuum, so we do it with a
+cron job:</p>
+<blockquote>
+<div>rhc cartridge add cron -a viralata</div></blockquote>
+<p>You will also need a <cite>key</cite> file and a <cite>local_settings.py</cite> file.You can use <cite>settings/local_settings.openshift_example.py</cite> as an example
+for the second one.Place both files in <cite>~/app-root/data/</cite>, inside the OpenShift gear.And, from inside the gear, using SSH, init the DB:</p>
+<blockquote>
+<div>. $OPENSHIFT_PYTHON_DIR/virtenv/bin/activate
+~/app-root/repo
+python manage.py -s $OPENSHIFT_DATA_DIR initdb</div></blockquote>
+</div>
+<div class="section" id="id2">
+<h2>API<a class="headerlink" href="#id2" title="Link permanente para este título">¶</a></h2>
+<p>Needs a &#8216;static&#8217; doc, but accessing the root of a hosted instance it&#8217;s
+possible to see a Swagger doc.</p>
+</div>
+<div class="section" id="name">
+<h2>Name<a class="headerlink" href="#name" title="Link permanente para este título">¶</a></h2>
+<p>Vira-Lata, in Brazilian Portuguese, means mutt/mongrel.So this name can be considered a more humble version of the mighty
+[Cerberus](<a class="reference external" href="https://en.wikipedia.org/wiki/Cerberus">https://en.wikipedia.org/wiki/Cerberus</a>), symbol of the
+[Kerberos
+protocol](<a class="reference external" href="https://en.wikipedia.org/wiki/Kerberos_%28protocol%29">https://en.wikipedia.org/wiki/Kerberos_%28protocol%29</a>)</p>
+</div>
+<div class="section" id="known-issues">
+<h2>Known Issues<a class="headerlink" href="#known-issues" title="Link permanente para este título">¶</a></h2>
+<p>If you are using Gmail to send forgot password e-mails, it&#8217;s possible it
+will block sending them, by security restrictions.After the problem happened, you can unlock it
+[here](<a class="reference external" href="https://accounts.google.com/DisplayUnlockCaptcha">https://accounts.google.com/DisplayUnlockCaptcha</a>).</p>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Link permanente para este título">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span>Índice</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span>Índice de Módulos</span></a></li>
+<li><a class="reference internal" href="search.html"><span>Página de Pesquisa</span></a></li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Tabela de Conteúdos</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Cuidando do Meu Bairro - Guia do desenvolvedor</a><ul>
+<li><a class="reference internal" href="#introducao">Introdução</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tagarela-beta">Tagarela (Beta)</a><ul>
+<li><a class="reference internal" href="#openshift-hosting">OpenShift Hosting</a></li>
+<li><a class="reference internal" href="#api">API</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#vira-lata-beta">Vira-Lata (Beta)</a><ul>
+<li><a class="reference internal" href="#protocol">Protocol</a></li>
+<li><a class="reference internal" href="#install">Install</a></li>
+<li><a class="reference internal" href="#prepare-db">Prepare DB</a></li>
+<li><a class="reference internal" href="#run">Run!</a></li>
+<li><a class="reference internal" href="#id1">OpenShift Hosting</a></li>
+<li><a class="reference internal" href="#id2">API</a></li>
+<li><a class="reference internal" href="#name">Name</a></li>
+<li><a class="reference internal" href="#known-issues">Known Issues</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>Esta Página</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.txt"
+            rel="nofollow">Exibir Fonte</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Pesquisa rápida</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Ir" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Digite os termos da busca ou o nome de um módulo, classe ou função.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, equipe cuidando.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="_sources/index.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

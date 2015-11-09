@@ -1,0 +1,38 @@
+.. cuidando-docs documentation master file, created by
+   sphinx-quickstart on Sat Nov  7 20:50:04 2015.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+
+Cuidando do Meu Bairro - Guia do desenvolvedor
+==============================================
+ 
+Versão |version| - novembro de 2015.
+
+
+Contents:
+
+.. toctree::
+   :maxdepth: 2
+
+
+
+Introdução
+----------
+
+Este guia descreve primeiramente a instalação e as formas de uso dos webservices.
+Em seguida  
+ marcação adotado pelo projeto SciELO para
+a submissão de documentos no formato XML. 
+
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+
+
+
